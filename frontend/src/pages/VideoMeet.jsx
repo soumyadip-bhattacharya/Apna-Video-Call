@@ -14,8 +14,10 @@ import SendIcon from '@mui/icons-material/Send';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete'; // New import for the delete icon
 import EmojiPicker from 'emoji-picker-react';
+import server from '../environment';
 
-const server_url = 'http://localhost:8000';
+
+const server_url = server;
 
 var connections = {};
 
