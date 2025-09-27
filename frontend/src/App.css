@@ -1,0 +1,133 @@
+.landingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: url("/public/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.landingPageContainer nav {
+  padding: 1.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingPageContainer nav h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.landingPageContainer nav .navlist .navItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.landingPageContainer nav .navlist .navItem:hover {
+  color: #ff9839;
+}
+
+/* Main Landing Section */
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  flex: 1;
+}
+
+.landingMainContainer > div:nth-child(1) {
+  max-width: 50%;
+}
+
+.landingMainContainer > div:nth-child(1) h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+.landingMainContainer > div:nth-child(1) p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #e0e0e0;
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"] {
+  background: #d97500;
+  width: fit-content;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"]:hover {
+  background: #ff9839;
+  transform: translateY(-2px);
+}
+
+.landingMainContainer > div:nth-child(1) div[role="button"] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Right Side Image */
+.landingMainContainer > div:nth-child(2) img {
+  height: 65vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* -----------------------------------
+   Other Components (kept unchanged)
+----------------------------------- */
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  text-align: center;
+}
+
+.meetContainer {
+  display: flex;
+  padding-inline: 20px;
+  height: 80vh;
+  gap: 10vw;
+  justify-content: center;
+}
+
+.leftPanel {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+}
+
+.rightPanel > img {
+  width: 30vw;
+  height: auto;
+  border-radius: 20px;
+}
