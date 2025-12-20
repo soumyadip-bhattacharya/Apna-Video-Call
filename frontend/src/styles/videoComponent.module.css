@@ -1,0 +1,284 @@
+.meetVideoContainer {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #1f2029 0%, #0f1016 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* --- LOBBY STYLES --- */
+.lobbyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f2f5;
+}
+
+.lobbyBox {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 400px;
+}
+
+.lobbyVideo video {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 20px;
+    background: #000;
+    transform: scaleX(-1); /* Mirror effect */
+}
+
+/* --- VIDEO GRID --- */
+.conferenceView { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 120px; /* Space for controls */
+}
+
+.peerVideoContainer {
+    position: relative;
+    width: 45vw;
+    height: 35vh;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.peerVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.peerName {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- LOCAL USER PIP --- */
+.meetUserVideo {
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    height: 160px;
+    width: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    z-index: 10;
+    transform: scaleX(-1);
+    transition: all 0.3s ease;
+}
+
+.meetUserVideo:hover {
+    transform: scaleX(-1) scale(1.05);
+}
+
+/* --- CONTROLS BAR --- */
+.buttonContainers {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 12px 30px;
+    border-radius: 50px;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.buttonContainers svg {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* --- CHAT ROOM SIDEBAR --- */
+.chatRoom {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    bottom: 100px; /* Sits above controls */
+    width: 360px;
+    background: #ffffff !important;
+    border-radius: 16px;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chatHeader {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1976d2; /* Main Theme Color */
+    color: white;
+}
+
+.chatHeader h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.chatRecipientBar {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* --- MESSAGES AREA --- */
+.chattingDisplay {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.noMessages {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+    font-style: italic;
+}
+
+/* --- MESSAGE BUBBLES --- */
+.messageWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+}
+
+/* My Messages (Right) */
+.myMessage {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.myMessage .messageBubble {
+    background: #1976d2;
+    color: white;
+    border-radius: 18px 18px 0 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.myMessage .senderName {
+    display: none; /* Hide my own name */
+}
+
+.myMessage .timestamp {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Other Messages (Left) */
+.otherMessage {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.otherMessage .messageBubble {
+    background: #ffffff;
+    color: #1c1e21;
+    border-radius: 18px 18px 18px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.otherMessage .timestamp {
+    color: #888;
+}
+
+.messageBubble {
+    padding: 10px 16px;
+    position: relative;
+    word-break: break-word;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.messageHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.senderName {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.timestamp {
+    font-size: 0.65rem;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -30px; /* Outside the bubble */
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.messageWrapper:hover .deleteButton {
+    opacity: 1;
+}
+
+/* --- INPUT AREA --- */
+.chattingArea {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatInput fieldset {
+    border-radius: 25px;
+}
